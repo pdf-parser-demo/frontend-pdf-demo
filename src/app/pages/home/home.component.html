@@ -1,0 +1,20 @@
+<app-header></app-header>
+
+<div class="container">
+    <!-- Input para cargar el PDF -->
+    <div class="card">
+        <!-- Selecciona el PDF y guarda una referencia para enviar al servicio -->
+        <input type="file" accept="application/pdf" (change)="onFileSelected($event)">
+        <!-- Al presionar este botón se espera la respuesta del servicio y se envía al componente preview-->
+        <button type="button" (click)="sendToApi()">Procesar</button>
+    </div>
+    <!-- Preview del PDF -->
+    <div class="card">
+        <div style="height: 500px; overflow-y: auto;">
+            <img *ngFor="let page of pages" [src]="page" style="width: 100%; margin-bottom: 20px;">
+        </div>
+        <p>Total de páginas: {{ totalPages }}</p>
+    </div>
+</div>
+
+<app-footer></app-footer>
