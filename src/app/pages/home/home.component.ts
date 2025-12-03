@@ -58,10 +58,10 @@ export class HomeComponent {
     };
     this.pdfApi.uploadPDF(this.selectedFile).subscribe({
       next: (res) => {
-        alert('PDF enviado con éxito')
+        alert(`PDF enviado con éxito: ${res.message}`)
       },
       error: (err) => {
-        alert(`Error al enviar PDF: ${err}`)
+        alert(`Error al enviar PDF: ${err.message}`)
       }
     })
   }
